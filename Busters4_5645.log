@@ -1,0 +1,368 @@
+1                                                          The SAS System                               17:09 Tuesday, March 2, 2021
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this 
+         session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M6) 
+      Licensed to UNIVERSITY OF NORTH TEXAS - T&R - SFA, Site 70194722.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.1
+      SAS/ETS 15.1
+      SAS/OR 15.1
+      SAS/IML 15.1
+      SAS/QC 15.1
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.19041  Workstation
+
+NOTE: SAS initialization used:
+      real time           1.11 seconds
+      cpu time            0.67 seconds
+      
+1          * This program is called Busters4_5645.SAS ;
+2          
+3          * First, clean the log and results windows;
+4          ODS HTML CLOSE ;
+5          ODS HTML ;
+NOTE: Writing HTML Body file: sashtml.htm
+6          DM 'LOG; CLEAR; ODSRESULTS; CLEAR' ;
+7          
+8          * The next line of code inserts a title on the first line of each page of output;
+9          TITLE ' Miriam Garcia ' ;
+10         
+11         * The next block of code reads the data file from the E drive;
+12         PROC IMPORT DATAFILE = ' E:Busters3_5645.CSV '
+13           OUT = BUSTERS1
+14           DBMS = CSV
+15           REPLACE ;
+16           GETNAMES = YES ;
+17           RUN ;
+
+18          /**********************************************************************
+19          *   PRODUCT:   SAS
+20          *   VERSION:   9.4
+21          *   CREATOR:   External File Interface
+2                                         The SAS System              17:09 Tuesday, March 2, 2021
+
+22          *   DATE:      02MAR21
+23          *   DESC:      Generated SAS Datastep Code
+24          *   TEMPLATE SOURCE:  (None Specified.)
+25          ***********************************************************************/
+26             data WORK.BUSTERS1    ;
+27             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+28             infile 'E:Busters3_5645.CSV' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+29                informat Store_ID best32. ;
+30                informat Close_date MONYY7. ;
+31                informat SALES best32. ;
+32                informat Pop_45to50 best32. ;
+33                informat Hisp_pop best32. ;
+34                informat Cauc_pop best32. ;
+35                informat Af_Am_pop best32. ;
+36                informat Asian_pop best32. ;
+37                informat Single_pop best32. ;
+38                informat Married_pop best32. ;
+39                informat Inc_40Kto100K best32. ;
+40                informat Inc_GT_100K best32. ;
+41                informat per_cap_inc best32. ;
+42                informat avg_inc best32. ;
+43                informat Educ_Bachelors best32. ;
+44                informat Educ_GE_Master best32. ;
+45                informat Occ_business best32. ;
+46                informat Occ_financial best32. ;
+47                informat Occ_computer best32. ;
+48                informat Occ_engineer best32. ;
+49                informat Occ_social_science best32. ;
+50                informat Occ_repair best32. ;
+51                informat played_baseball best32. ;
+52                informat played_basketball best32. ;
+53                informat played_bowling best32. ;
+54                informat played_football best32. ;
+55                informat played_hockey best32. ;
+56                informat played_volleyball best32. ;
+57                informat played_yoga best32. ;
+58                informat exercise_regularly best32. ;
+59                informat restaurant_score best32. ;
+60                informat night_life_score best32. ;
+61                informat music best32. ;
+62                informat football best32. ;
+63                informat baseball best32. ;
+64                informat basketball best32. ;
+65                informat soccer best32. ;
+66                informat university best32. ;
+67                informat CC best32. ;
+68                informat DT $3. ;
+69                informat BT $4. ;
+70                informat champ $1. ;
+71                informat stand_alone best32. ;
+72                informat strip_mall best32. ;
+73                informat life_style best32. ;
+74                informat pop_growth best32. ;
+3                                         The SAS System              17:09 Tuesday, March 2, 2021
+
+75                informat region $5. ;
+76                informat Hooters best32. ;
+77                informat TP best32. ;
+78                informat BWW best32. ;
+79                informat Metrics best32. ;
+80                format Store_ID best12. ;
+81                format Close_date MONYY7. ;
+82                format SALES best12. ;
+83                format Pop_45to50 best12. ;
+84                format Hisp_pop best12. ;
+85                format Cauc_pop best12. ;
+86                format Af_Am_pop best12. ;
+87                format Asian_pop best12. ;
+88                format Single_pop best12. ;
+89                format Married_pop best12. ;
+90                format Inc_40Kto100K best12. ;
+91                format Inc_GT_100K best12. ;
+92                format per_cap_inc best12. ;
+93                format avg_inc best12. ;
+94                format Educ_Bachelors best12. ;
+95                format Educ_GE_Master best12. ;
+96                format Occ_business best12. ;
+97                format Occ_financial best12. ;
+98                format Occ_computer best12. ;
+99                format Occ_engineer best12. ;
+100               format Occ_social_science best12. ;
+101               format Occ_repair best12. ;
+102               format played_baseball best12. ;
+103               format played_basketball best12. ;
+104               format played_bowling best12. ;
+105               format played_football best12. ;
+106               format played_hockey best12. ;
+107               format played_volleyball best12. ;
+108               format played_yoga best12. ;
+109               format exercise_regularly best12. ;
+110               format restaurant_score best12. ;
+111               format night_life_score best12. ;
+112               format music best12. ;
+113               format football best12. ;
+114               format baseball best12. ;
+115               format basketball best12. ;
+116               format soccer best12. ;
+117               format university best12. ;
+118               format CC best12. ;
+119               format DT $3. ;
+120               format BT $4. ;
+121               format champ $1. ;
+122               format stand_alone best12. ;
+123               format strip_mall best12. ;
+124               format life_style best12. ;
+125               format pop_growth best12. ;
+126               format region $5. ;
+127               format Hooters best12. ;
+4                                         The SAS System              17:09 Tuesday, March 2, 2021
+
+128               format TP best12. ;
+129               format BWW best12. ;
+130               format Metrics best12. ;
+131            input
+132                        Store_ID
+133                        Close_date
+134                        SALES
+135                        Pop_45to50
+136                        Hisp_pop
+137                        Cauc_pop
+138                        Af_Am_pop
+139                        Asian_pop
+140                        Single_pop
+141                        Married_pop
+142                        Inc_40Kto100K
+143                        Inc_GT_100K
+144                        per_cap_inc
+145                        avg_inc
+146                        Educ_Bachelors
+147                        Educ_GE_Master
+148                        Occ_business
+149                        Occ_financial
+150                        Occ_computer
+151                        Occ_engineer
+152                        Occ_social_science
+153                        Occ_repair
+154                        played_baseball
+155                        played_basketball
+156                        played_bowling
+157                        played_football
+158                        played_hockey
+159                        played_volleyball
+160                        played_yoga
+161                        exercise_regularly
+162                        restaurant_score
+163                        night_life_score
+164                        music
+165                        football
+166                        baseball
+167                        basketball
+168                        soccer
+169                        university
+170                        CC
+171                        DT  $
+172                        BT  $
+173                        champ  $
+174                        stand_alone
+175                        strip_mall
+176                        life_style
+177                        pop_growth
+178                        region  $
+179                        Hooters
+180                        TP
+5                                         The SAS System              17:09 Tuesday, March 2, 2021
+
+181                        BWW
+182                        Metrics
+183            ;
+184            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable
+184      ! */
+185            run;
+
+NOTE: The infile 'E:Busters3_5645.CSV' is:
+      Filename=E:\Project 4\Busters3_5645.CSV,
+      RECFM=V,LRECL=32767,File Size (bytes)=18387,
+      Last Modified=24Feb2021:20:42:10,
+      Create Time=24Feb2021:20:42:15
+
+NOTE: 78 records were read from the infile 'E:Busters3_5645.CSV'.
+      The minimum record length was 207.
+      The maximum record length was 240.
+NOTE: The data set WORK.BUSTERS1 has 78 observations and 51 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.03 seconds
+      
+
+78 rows created in WORK.BUSTERS1 from E:Busters3_5645.CSV.
+  
+  
+  
+NOTE: WORK.BUSTERS1 data set was successfully created.
+NOTE: The data set WORK.BUSTERS1 has 78 observations and 51 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.93 seconds
+      cpu time            0.17 seconds
+      
+
+186        
+187        * The next block of code drops unreasonable & outlier observations for SALES, replaces
+187      ! the missing observation
+188          for Pop_45to50, and creates proper dummy variables from the existing qualitative
+188      ! variables.  ;
+189        DATA BUSTERS2;
+190          SET BUSTERS1;
+191          IF Store_ID=1 or Store_ID=2 THEN DELETE;
+192          IF SALES < 1219372 or SALES > 3654479 THEN DELETE;
+193          IF Pop_45to50 = . THEN Pop_45to50 = 156.68;
+194          cover_charge = 0;
+195          IF CC = 2 THEN cover_charge = 1;
+196          pop_high = 0;
+197          IF pop_growth = 1 THEN pop_high = 1;
+198          pop_medium = 0;
+199          IF pop_growth = 2 THEN pop_medium = 1;
+200          pop_low = 0;
+201          IF pop_growth = 3 THEN pop_low = 1;
+202          pop_negative = 0;
+203          IF pop_growth = 4 THEN pop_negative = 1;
+6                                         The SAS System              17:09 Tuesday, March 2, 2021
+
+204          West = 0;
+205          IF Region = "W" THEN West = 1;
+206          MW = 0;
+207          IF Region = "MWest" THEN MW = 1;
+208          SW = 0;
+209          IF Region = "SWest" THEN SW = 1;
+210          East = 0;
+211          IF Region = "e" THEN East = 1;
+212          drive_thru = 0;
+213          IF DT = "yes" THEN drive_thru = 1;
+214          high_tax = 0;
+215          IF BT = "high" THEN high_tax = 1;
+216          champion = 0;
+217          IF champ = "Y" THEN champion = 1;
+218          Buffalo = 0;
+219          IF BWW > 0 THEN Buffalo = 1;
+220          RUN;
+
+NOTE: There were 78 observations read from the data set WORK.BUSTERS1.
+NOTE: The data set WORK.BUSTERS2 has 74 observations and 64 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+221        
+222        * The next block of code cleans up the dummy variables;
+223        DATA BUSTERS3;
+224          SET BUSTERS2;
+225          pop_high_medium = pop_high + pop_medium;
+226          W_MW = West + MW;
+227          RUN;
+
+NOTE: There were 74 observations read from the data set WORK.BUSTERS2.
+NOTE: The data set WORK.BUSTERS3 has 74 observations and 66 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+228        
+229        * Generate correlation coefficients between sales and the new dummy variables;
+230        PROC CORR;
+231          VAR SALES Hooters Buffalo Metrics champion high_tax;
+232          RUN;
+
+NOTE: The PROCEDURE CORR printed page 1.
+NOTE: PROCEDURE CORR used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.06 seconds
+      
+
+233        
+7                                         The SAS System              17:09 Tuesday, March 2, 2021
+
+234        ODS GRAPHICS OFF;
+235        PROC REG;
+236          A: MODEL Sales = pop_45to50 married_pop inc_40Kto100K occ_engineer occ_repair
+237             played_baseball played_basketball played_bowling played_football played_hockey
+238        	 restaurant_score night_life_score football baseball basketball cover_charge
+239             W_MW SW stand_alone strip_mall Hooters Buffalo Metrics champion high_tax;
+240          B: MODEL Sales = married_pop inc_40Kto100K occ_engineer played_football football
+241             cover_charge W_MW SW stand_alone strip_mall Hooters Buffalo;
+242          C: MODEL Sales = married_pop inc_40Kto100K occ_repair played_baseball baseball
+242      ! cover_charge
+243             W_MW SW stand_alone strip_mall Hooters Metrics;
+244          D: MODEL Sales = married_pop inc_40Kto100K played_basketball basketball cover_charge
+245             stand_alone strip_mall Hooters champion;
+246          E: MODEL Sales = married_pop inc_40Kto100K played_football football restaurant_score
+246      ! cover_charge
+247             stand_alone strip_mall Hooters high_tax;
+248          F: MODEL Sales = married_pop inc_40Kto100K played_hockey football cover_charge
+249             stand_alone strip_mall metrics champion;
+250        RUN;
+
+251        
+252        
+253        * End end with a QUIT statement ;
+254        QUIT;
+
+NOTE: The PROCEDURE REG printed pages 2-8.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           1.16 seconds
+      cpu time            0.04 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           6.16 seconds
+      cpu time            1.49 seconds
+      
